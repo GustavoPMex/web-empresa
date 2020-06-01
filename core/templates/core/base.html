@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inouti | {% block title %}{% endblock title %} </title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css '%}">
+    <link rel="shortcut icon" href="{% static 'core/img/icons/flaticon.ico' %}">
+    <link rel="stylesheet" href="{% static 'core/css/styles.css' %}">
+</head>
+<body class="body-color">
+    <header class="pb-3 pb-lg-5">
+        <div class="row w-100 mp-container">
+            <div class="col-12 d-flex justify-content-center">
+                <img class="logo-header" src="{% static 'core/img/logo.png' %}" alt="Logo Inouti" title="Logo Inouti">
+            </div>
+        </div>
+
+        <div class="row w-100 mt-5 mp-container">
+            <div class="col  d-none d-lg-flex justify-content-center">
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link bg-menu" href="{% url 'home:index' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link bg-menu" href="/about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link bg-menu" href="">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link bg-menu" href="">Software</a></li>
+                    <li class="nav-item"><a class="nav-link bg-menu" href="">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link bg-menu" href=""><img class="logo-shop-menu" src="{% static 'core/img/icons/shopping-cart.png' %}" alt=""></a></li>
+                    <li class="nav-item"><a class="nav-link bg-menu" href=""><img class="logo-social-menu" src="{% static 'core/img/icons/social.png' %}" alt=""></a></li>
+                </ul>
+            </div>
+
+            <div class="col mt-4 d-flex d-lg-none justify-content-center">
+                <div class="dropdown">
+                    <button class="btn-lg btn-secondary dropdown-toggle menu-des" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img class="logo-ham-menu mr-1" src="{% static 'core/img/icons/home-icon-silhouxcvette.png' %}" alt="">    Menu
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <a class="dropdown-item" href="{% url 'home:index' %}">Home</a>
+                        <a class="dropdown-item" href="/about.html">About</a>
+                        <a class="dropdown-item" href="">Tienda</a>
+                        <a class="dropdown-item" href="">Software</a>
+                        <a class="dropdown-item" href="">Contact</a>
+                        <a class="dropdown-item" href="">Car shop</a>
+                        <a class="dropdown-item" href="">Profile</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </header>
+    
+    <main>
+       {% block content %}
+       
+       {% endblock content %}
+    </main>
+
+    <footer>
+        <div class="row my-5 w-100 mp-container">
+            <div class="col  d-flex flex-column flex-md-row justify-content-center text-center">
+                <a href="#"><img class="icon-sociales " src="{% static 'core/img/icons/facebook.png' %}" alt=""></a>
+                <a href="#"><img class="icon-sociales" src="{% static 'core/img/icons/twitter.png' %}" alt=""></a>
+                <a href="#"><img class="icon-sociales" src="{% static 'core/img/icons/linkedin.png' %}" alt=""></a>
+            </div>
+
+            <div class="col-12 mt-5 d-flex justify-content-center">
+                <p class="text-footer">Inouti @ 2020</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'core/js/jquery-3.5.0.min.js' %}"></script>
+    <script src="{% static 'core/js/popper.min.js' %}"></script>
+    <script src="{% static 'core/js/bootstrap.min.js' %}"></script>
+
+</body>
+</html>

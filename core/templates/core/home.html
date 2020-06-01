@@ -1,0 +1,46 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+<div class="row w-100 d-flex justify-content-center mp-container">
+            <div class="col-12 col-md-7 mp-main">
+                <img class="img-main" src="{% static 'core/img/group2.jpg' %}" alt="Imagen Inouti" title="Inouti">
+            </div>
+
+            <div class="col-12 col-md-4 col-lg-2 bg-main d-flex align-content-center flex-wrap justify-content-center ">
+                <h1 class="mp-main h-main">Welcome</h1>
+                <p class="mp-main p-main text-center">Somos un grupo de jóvenes dedicados a brindarles los mejores servicios</p>
+            </div>
+        </div>
+
+        <div class="row w-100 d-flex justify-content-center mp-container">
+            <div class="col-6  mx-5 my-5 col-md-10 col-lg-2 d-md-flex d-lg-block  container-icon icon-bgc">
+                <div class="container-img">
+                    <img class="icon-size" src="{% static 'core/img/icons/estadistica.png' %}" alt="">
+                </div>
+                <p class=" my-4 p-3 text-center icon-text">Texto de prueba para esta parte de la página web, muchas gracias por su atención</p>
+            </div>
+
+            <div class="col-6  mx-5 my-5 col-md-10 col-lg-2 d-md-flex d-lg-block  container-icon icon-bgc">
+                <div class="container-img">
+                    <img class="icon-size" src="{% static 'core/img/icons/estadistica.png' %}" alt="">
+                </div>
+                <p class=" my-4 p-3 text-center icon-text">Texto de prueba para esta parte de la página web, muchas gracias por su atención</p>
+            </div>
+
+
+            <div class="col-6  mx-5 my-5 col-md-10 col-lg-2 d-md-flex d-lg-block  container-icon icon-bgc">
+                <div class="container-img">
+                    <img class="icon-size" src="{% static 'core/img/icons/estadistica.png' %}" alt="">
+                </div>
+                <p class=" my-4 p-3 text-center icon-text">Texto de prueba para esta parte de la página web, muchas gracias por su atención</p>
+            </div>
+
+
+
+        </div>
+
+{% endblock content %}
