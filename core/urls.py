@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import home
+from .views import home, about
 
 home_patterns = ([
-    path('', home, name='index')
+    path('', home, name='index'),
+    path('about/', about, name='about'),
 ], 'home')
