@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
+    'contact'
 ]
 
 MIDDLEWARE = [
@@ -124,3 +125,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#Email
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'django.pruebasemail@gmail.com'
+EMAIL_HOST_PASSWORD = 'teamomama21'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
