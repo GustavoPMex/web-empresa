@@ -1,0 +1,53 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}{% endblock title %}
+
+{% block content %} 
+
+       <div class="row w-100 justify-content-center  mp-container">
+            <div class="col-11 col-md-9 text-center">
+                <div class="d-flex justify-content-center ">
+                    <h1 class="h-clientes">Programación y Desarrollo web</h1>
+                </div>
+                <img class="img-clientes" src="{% static 'core/img/dev-computer.jpg' %}" alt="">
+                <div class="d-flex justify-content-center">
+                    <p class="p-clientes">Donec rutrum congue leo eget malesuada. Cras ultricies ligula sed magna dictum porta. Donec rutrum congue leo eget malesuada. Pellentesque in ipsum id orci porta dapibus. Sed porttitor lectus nibh. Nulla porttitor accumsan tincidunt.</p>
+                </div>
+                
+            </div>
+        </div>
+
+
+        <div class="container mt-5 mt-md-0">
+            <div class="text-center">
+                <p class="p-container-clientes">Demostración de nuestros trabajos</p>
+            </div>
+            <div class="row w-100 mp-container justify-content-center">
+                
+                {% for p in projects %}
+                    <div class="col-12 col-sm-4 col-lg-3 text-center m-5 m-sm-4 m-lg-0">
+                        <a href="{{p.url}}" target='_blank'><img class="img-trabajos" src="{{p.image.url}}"  alt="{{p.name}}" title="{{p.name}}"></a>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+
+
+        <div class="container mt-5">
+            <div class="text-center">
+                <p class="p-container-clientes">Nuestros clientes</p>
+            </div>
+            <div class="row w-100 mp-container justify-content-center">
+
+                {% for c in clientes %}
+                    <div class="col-12 col-sm-4 col-lg-3 text-center m-5 m-sm-4 m-lg-0">
+                        <img class="img-trabajos" src="{{c.image.url}}" alt="{{c.name}}" title='{{c.name}}'>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+{% endblock content %}

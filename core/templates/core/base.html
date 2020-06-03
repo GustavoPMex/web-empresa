@@ -24,8 +24,8 @@
                     <li class="nav-item"><a class="nav-link bg-menu" href="{% url 'home:index' %}">Home</a></li>
                     <li class="nav-item"><a class="nav-link bg-menu" href="{% url 'home:about' %}">About</a></li>
                     <li class="nav-item"><a class="nav-link bg-menu" href="">Shop</a></li>
-                    <li class="nav-item"><a class="nav-link bg-menu" href="">Software</a></li>
-                    <li class="nav-item"><a class="nav-link bg-menu" href="">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link bg-menu" href="{% url 'clientes:index' %}">Clients</a></li>
+                    <li class="nav-item"><a class="nav-link bg-menu" href="{% url 'contact:index' %}">Contact</a></li>
                     <li class="nav-item"><a class="nav-link bg-menu" href=""><img class="logo-shop-menu" src="{% static 'core/img/icons/shopping-cart.png' %}" alt=""></a></li>
                     <li class="nav-item"><a class="nav-link bg-menu" href=""><img class="logo-social-menu" src="{% static 'core/img/icons/social.png' %}" alt=""></a></li>
                 </ul>
@@ -40,8 +40,8 @@
                         <a class="dropdown-item" href="{% url 'home:index' %}">Home</a>
                         <a class="dropdown-item" href="{% url 'home:about' %}">About</a>
                         <a class="dropdown-item" href="">Tienda</a>
-                        <a class="dropdown-item" href="">Software</a>
-                        <a class="dropdown-item" href="">Contact</a>
+                        <a class="dropdown-item" href="{% url 'clientes:index' %}">Clients</a>
+                        <a class="dropdown-item" href="{% url 'contact:index' %}">Contact</a>
                         <a class="dropdown-item" href="">Car shop</a>
                         <a class="dropdown-item" href="">Profile</a>
                     </div>

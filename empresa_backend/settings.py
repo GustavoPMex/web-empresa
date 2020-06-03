@@ -30,16 +30,23 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core',
-    'contact'
+ 
 ]
+
+MY_APPS = [
+    'core',
+    'contact',
+    'clients.apps.ClientsConfig',
+]
+
+INSTALLED_APPS = DJANGO_APPS + MY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -133,3 +140,8 @@ EMAIL_HOST_USER = 'django.pruebasemail@gmail.com'
 EMAIL_HOST_PASSWORD = 'teamomama21'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+#MEDIA
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
