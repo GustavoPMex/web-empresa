@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 DJANGO_APPS = [
+    'registration',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,7 +44,7 @@ DJANGO_APPS = [
 MY_APPS = [
     'core',
     'contact',
-    'clients.apps.ClientsConfig',
+    'clients.apps.ClientsConfig'
 ]
 
 INSTALLED_APPS = DJANGO_APPS + MY_APPS
@@ -145,3 +146,7 @@ EMAIL_USE_TLS = True
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+#LOGIN REDIRECT
+LOGIN_REDIRECT_URL = 'home:index'
