@@ -1,5 +1,7 @@
 {% extends 'core/base.html' %}
 
+{% load static %}
+
 {% block title %}Profile{% endblock title %}
 
 {% block content %}
@@ -13,6 +15,28 @@
                     <a class="nav-link" href="{% url 'signup' %}">Registro</a>
                     </li>
             </ul>
+        </div>
+    {% else %}
+        <div class="row w-100 mp-container justify-content-center">
+            <div class="profile-container text-center">
+            <form action="" method="post" enctype="multipart/form-data">{% csrf_token %} 
+                <div class="profile-container-img">
+                    {% if request.user.profile.avatar %}
+                        <img src="{{request.user.profile.avatar.url}}" class="profile-img">
+                        <p class="mt-1">¿Borrar? <input type="checkbox" id="avatar-clear" name="avatar-clear" /></p>
+                    {% else %}
+                        <img src="{% static 'registration/img/original.jpg' %}" class="profile-img"> 
+                    {% endif %}
+                </div>
+
+                <div class="col-md-10">
+                    <h3>Perfil</h3>
+                    <input type="file" name="avatar" class="form-control-file mt-3" id="id_avatar">
+                    {{ form.bio }}
+                    {{ form.link }}
+                    <input type="submit" class="btn btn-primary btn-block mt-3" value="Actualizar">
+                </div>
+            </div>
         </div>
     {% endif %}
 {% endblock content %}
