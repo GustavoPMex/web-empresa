@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from .forms import UserCreationFormWithEmail, ProfileForm
 from django.views.generic import CreateView
 from django.views.generic.edit import UpdateView
@@ -37,3 +38,7 @@ class ProfileUpdate(UpdateView):
         profile, created = Profile.objects.get_or_create(user=self.request.user)
 
         return profile
+
+@login_required(login_url='/accounts/login/')
+def profileView(request):
+    return render(request,'registration/profile.html')

@@ -1,0 +1,46 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}Update Profile{% endblock title %}
+
+{% block content %}
+    <div class="row w-100 mp-container justify-content-center">
+        <div class="profile-container text-center">
+            <h3 class='mb-5'>Perfil</h3>
+            <div class="profile-container-img">
+                {% if request.user.profile.avatar %}
+                    <img src="{{request.user.profile.avatar.url}}" class="profile-img">
+                {% else %}
+                    <img src="{% static 'registration/img/original.jpg' %}" class="profile-img"> 
+                {% endif %}
+            </div>
+
+            <div class="col">
+                <div>
+                    <p class="title-prof">Nombre</p>
+                </div>
+                <div>
+                    <p class="subti-prof">{{request.user.profile.user}}</p>
+                </div>
+
+                <div>
+                    <p class="title-prof">Biografia</p>
+                </div>
+                <div>
+                    <p class="subti-prof">{{request.user.profile.bio}}</p>
+                </div>
+
+                <div>
+                    <p class="title-prof">Enlace</p>
+                </div>
+                <div>
+                    <a class='link-prof' href='{{request.user.profile.link}}' target='_blank'><p class="subti-prof">{{request.user.profile.link}}</p></a>
+                </div>
+
+                <a class="btn btn-primary btn-block mt-5" href="{% url 'profile_update' %}" role="button">Actualizar Datos</a>
+                <a class="btn btn-danger btn-block mt-3" href="{% url 'logout' %}" role="button">Cerrar Sesión</a>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
