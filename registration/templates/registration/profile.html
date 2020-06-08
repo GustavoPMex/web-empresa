@@ -8,6 +8,9 @@
     <div class="row w-100 mp-container justify-content-center">
         <div class="profile-container text-center">
             <h3 class='mb-5'>Perfil</h3>
+            {% if 'ok' in request.GET %}
+                <p class='estilos-alerta mb-3'>SE ACTUALIZARON LOS DATOS DE MANERA CORRECTA</p>
+            {% endif %}
             <div class="profile-container-img">
                 {% if request.user.profile.avatar %}
                     <img src="{{request.user.profile.avatar.url}}" class="profile-img">

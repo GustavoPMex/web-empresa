@@ -30,8 +30,10 @@ class SignUpView(CreateView):
 @method_decorator(login_required, name='dispatch')
 class ProfileUpdate(UpdateView):
     form_class = ProfileForm
-    success_url = reverse_lazy('profile')
     template_name = 'registration/base_registration.html'
+
+    def get_success_url(self):
+        return reverse_lazy('profile') + '?ok'
 
     def get_object(self):
         

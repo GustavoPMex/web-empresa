@@ -430,6 +430,11 @@ li:last-child a{
     border-radius: 1em;
 }
 
+.estilos-alerta{
+    margin: 0;
+    padding: 0;
+    color: rgb(68, 136, 0);
+}
 
 .profile-img{
     width: 200px;
@@ -495,6 +500,10 @@ li:last-child a{
 }
 
 .btn-primary{
+    transition: .3s;
+}
+
+.btn-danger{
     transition: .3s;
 }
 
