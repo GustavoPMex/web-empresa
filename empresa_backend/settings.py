@@ -44,7 +44,8 @@ DJANGO_APPS = [
 MY_APPS = [
     'core',
     'contact',
-    'clients.apps.ClientsConfig'
+    'clients.apps.ClientsConfig',
+    'shop.apps.ShopConfig',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + MY_APPS

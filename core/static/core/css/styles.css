@@ -237,6 +237,11 @@ li:last-child a{
     background-color: rgb(139, 139, 139);
 }
 
+.img-item-shop{
+    width: 250px;
+    height: 180px;
+}
+
 .car-shop-img{
     width: 40px;
 }
