@@ -76,7 +76,7 @@
                     <th scope="col">Producto</th>
                     <th class="d-none d-lg-table-cell"  scope="col">Imagen ilustratitva</th>
                     <th scope="col">Descripción</th>
-                    <th scope="col">Precio</th>
+                    <th scope="col">Comprar</th>
                 </tr>
             </thead>
             <tbody>
@@ -86,11 +86,7 @@
                         <td class="text-center d-none d-lg-inline"><img class='img-item-shop mt-5' src="{{i.img.url}}" alt=""></td>
                         <td class="text-center py-5">{{i.description}}</td>
                         <td class="text-center py-5">
-                            <form action="">
-                                <input class="mt-4 car-shop-input" type="number" name="" id="">
-                                <p>Precio: ${{i.price}}<output id="" for=""></output></p>
-                                <button class="mt-4 btn-shop" type="submit"><img class="car-shop-img" src="{% static 'core/img/icons/shopping-cart.png' %}" alt=""></button>
-                            </form>
+                            {% include 'carts/snippets/add.html' with itemshop=i %}
                         </td>
                     </tr>
                 {% endfor %}

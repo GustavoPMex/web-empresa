@@ -1,0 +1,8 @@
+{% load static %}
+
+<form action="{% url 'carts:add' %}" method="post">
+    {% csrf_token %}
+    <input type="hidden" name='product_id' value="{{itemshop.id}}">
+    <button class="mt-4 btn-shop" type="submit"><img class="car-shop-img" src="{% static 'core/img/icons/shopping-cart.png' %}" alt=""></button>
+
+</form>

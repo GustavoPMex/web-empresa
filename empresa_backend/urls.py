@@ -19,6 +19,7 @@ from core.urls import home_patterns
 from contact.urls import contact_patterns
 from clients.urls import clients_patterns
 from shop.urls import shop_urls
+from carts.urls import cart_patterns
 from django.conf import settings
 
 
@@ -26,6 +27,7 @@ urlpatterns = [
     path('', include(home_patterns)), 
     path('contact/', include(contact_patterns)),
     path('clients/', include(clients_patterns)),
+    path('carrito/', include(cart_patterns)),
     path('shop/', include(shop_urls)),
     path('admin/', admin.site.urls),
     #PATHS TO USER
