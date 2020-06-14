@@ -21,23 +21,25 @@
                     </thead>
                     
                     <tbody>
-                        {% for item in cart.products.all %}
-                            <tr>
-                                <th>{{forloop.counter}}</th>
-                                <th>
-                                    {% if item.img %}
-                                        <img src="{{item.img.url}}" alt="Imagen del producto" width="60" height="60">
-                                    {% endif %}
-                                </th>
-                                <th>
-                                    <a href="{% url 'shop:index' %}">{{item.name}}</a>
-                                    {% include 'carts/snippets/remove.html' %}
-                                </th>
-                                <th>1</th>
-                                <th>
-                                    <span class="font-weight-bold text-danger">{{item.price | price_format}}</span>
-                                </th>
-                            </tr>
+                        {% for cp in cart.products_related %}
+                            {% with item=cp.product %}
+                                <tr>
+                                    <th>{{forloop.counter}}</th>
+                                    <th>
+                                        {% if item.img %}
+                                            <img src="{{item.img.url}}" alt="Imagen del producto" width="60" height="60">
+                                        {% endif %}
+                                    </th>
+                                    <th>
+                                        <a href="{% url 'shop:index' %}">{{item.name}}</a>
+                                        {% include 'carts/snippets/remove.html' %}
+                                    </th>
+                                    <th>{{cp.quantity}}</th>
+                                    <th>
+                                        <span class="font-weight-bold text-danger">{{item.price | price_format}}</span>
+                                    </th>
+                                </tr>
+                            {% endwith %}
                         {% endfor %}
                     </tbody>
                 </table>
