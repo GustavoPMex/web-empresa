@@ -43,14 +43,14 @@
 
         <div class="col-12 col-lg-3 text-center mt-3">
             <div class="dropdown">
-                <form action="{% url 'shop:price' %}" method="POST">
+                <form action="{% url 'shop:category' %}" method="POST">
                     {% csrf_token %}
-                    <select name="filter_price" id="filter_price" class="btn btn-secondary dropdown-toggle" onchange="this.form.submit()">
-                        <option value="">Precios</option>
-                        <option value="all">Mostrar todo</option>
-                        <option value="1">Menos de $500</option>
-                        <option value="2">Menos de $1000</option>
-                        <option value="3">Mayor a $1000</option>
+                    <select name="filter_cat" id="filter_cat" class="btn btn-secondary dropdown-toggle" onchange="this.form.submit()">
+                            <option value="">Categorias</option>
+                            <option value="all">Mostrar todo</option>
+                        {% for cat in categories %}
+                            <option value="{{cat.name}}">{{cat.name}}</option>
+                        {% endfor %}
                     </select>
                 </form>
             </div>
@@ -68,7 +68,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for i in items %}
+                {% for i in products_cat %}
                     <tr>
                         <td class="text-center py-5">{{i.name}}</td>
                         <td class="text-center d-none d-lg-inline"><img class='img-item-shop mt-5' src="{{i.img.url}}" alt=""></td>
@@ -81,6 +81,7 @@
                             {% endfor %}
                         
                         </td>
+
                         <td class="text-center py-5">
                             {% include 'carts/snippets/add.html' with itemshop=i %}
                         </td>
@@ -91,4 +92,5 @@
         </table>
     </div>
 </div>
+
 {% endblock content %}

@@ -22,10 +22,6 @@ def add(request):
 
     quantity = int(request.POST.get('quantity', 1))
 
-    # cart.products.add(item, through_defaults = {
-    #     'quantity':quantity
-    # })
-
     cart_product = CartProducts.objects.create_or_update_quantity(cart=cart,
                                                                     product=item,
                                                                     quantity=quantity)

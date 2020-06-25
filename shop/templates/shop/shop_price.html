@@ -68,7 +68,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for i in items %}
+                {% for i in products_price %}
                     <tr>
                         <td class="text-center py-5">{{i.name}}</td>
                         <td class="text-center d-none d-lg-inline"><img class='img-item-shop mt-5' src="{{i.img.url}}" alt=""></td>
@@ -81,6 +81,7 @@
                             {% endfor %}
                         
                         </td>
+
                         <td class="text-center py-5">
                             {% include 'carts/snippets/add.html' with itemshop=i %}
                         </td>
@@ -91,4 +92,11 @@
         </table>
     </div>
 </div>
+
 {% endblock content %}
+
+<script>
+    $('form select').on('change', function(){
+        $(this).closest('form').submit();
+    });
+</script>
