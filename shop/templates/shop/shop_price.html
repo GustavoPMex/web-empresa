@@ -14,9 +14,9 @@
         </div>
 
         <div class="col-12 mt-5 mt-lg-0 col-lg-5">
-            <form action="POST">
+            <form action="{% url 'shop:search_p' %}" method="GET">
                 <div class="input-group text-center">
-                    <input type="search" class="form-control" placeholder="Buscar en tienda" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <input type="search" class="form-control" placeholder="Ingresa palabra clave, ejem: Impresora" name="search">
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary btn-s-shop" type="submit">Buscar</button>
                     </div>

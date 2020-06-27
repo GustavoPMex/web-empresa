@@ -58,37 +58,44 @@
     </div>
 
     <div class="row w-100 my-5 mx-1">
-        <table class=" table  table-responsive table-striped table-bordered  table-dark table-responsive">
-            <thead class="head-table text-center">
-                <tr>
-                    <th scope="col">Producto</th>
-                    <th class="d-none d-lg-table-cell"  scope="col">Imagen ilustratitva</th>
-                    <th scope="col">Descripción</th>
-                    <th scope="col">Comprar</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for i in items %}
-                    <tr>
-                        <td class="text-center py-5">{{i.name}}</td>
-                        <td class="text-center d-none d-lg-inline"><img class='img-item-shop mt-5' src="{{i.img.url}}" alt=""></td>
-                        <td class="text-center py-5">
-                            {{i.description}}
-                            <br>
-                            <br>
-                            {% for cat in i.category.all %}
-                                <p><em> Categoria: {{cat.name}} </em></p>
-                            {% endfor %}
-                        
-                        </td>
-                        <td class="text-center py-5">
-                            {% include 'carts/snippets/add.html' with itemshop=i %}
-                        </td>
-                    </tr>
-                {% endfor %}
+        {% if not all_search_results == 'no results' %}
+            <table class=" table  table-responsive table-striped table-bordered  table-dark table-responsive">
+                    <thead class="head-table text-center">
+                        <tr>
+                            <th scope="col">Producto</th>
+                            <th class="d-none d-lg-table-cell"  scope="col">Imagen ilustratitva</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Comprar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in all_search_results %}
+                            <tr>
+                                <td class="text-center py-5">{{i.name}}</td>
+                                <td class="text-center d-none d-lg-inline"><img class='img-item-shop mt-5' src="{{i.img.url}}" alt=""></td>
+                                <td class="text-center py-5">
+                                    {{i.description}}
+                                    <br>
+                                    <br>
+                                    {% for cat in i.category.all %}
+                                        <p><em> Categoria: {{cat.name}} </em></p>
+                                    {% endfor %}
+                                
+                                </td>
+                                <td class="text-center py-5">
+                                    {% include 'carts/snippets/add.html' with itemshop=i %}
+                                </td>
+                            </tr>
 
-            </tbody>
-        </table>
+                        {% endfor %}
+
+                    </tbody>
+            </table>
+        {% else %}
+            <div class="col justify-content-center">
+                <p class="text-center text-search" >NO SE ENCONTRARON RESULTADOS</p>
+            </div>
+        {% endif %}
     </div>
 </div>
 {% endblock content %}

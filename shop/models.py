@@ -25,8 +25,13 @@ class itemShop(models.Model):
     created = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de creación')
     updated = models.DateTimeField(auto_now=True, verbose_name='Fecha de modificación')
 
+    def save(self, *args, **kwargs):
+        self.name = self.name.title()
+        return super(itemShop, self).save(*args, **kwargs)
+
     def __str__(self):
         return self.name
+    
     
     class Meta:
         verbose_name = 'Producto'

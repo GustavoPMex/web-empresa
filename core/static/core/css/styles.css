@@ -667,3 +667,8 @@ li:last-child a{
 
 }
 
+.text-search{
+    font-size: 2em;
+    font-weight: bold;
+    color: white;
+}

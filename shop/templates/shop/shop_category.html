@@ -14,9 +14,9 @@
         </div>
 
         <div class="col-12 mt-5 mt-lg-0 col-lg-5">
-            <form action="POST">
+            <form action="{% url 'shop:search_p' %}" method="GET">
                 <div class="input-group text-center">
-                    <input type="search" class="form-control" placeholder="Buscar en tienda" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <input type="search" class="form-control" placeholder="Ingresa palabra clave, ejem: Impresora" name="search">
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary btn-s-shop" type="submit">Buscar</button>
                     </div>
@@ -43,14 +43,14 @@
 
         <div class="col-12 col-lg-3 text-center mt-3">
             <div class="dropdown">
-                <form action="{% url 'shop:category' %}" method="POST">
+                <form action="{% url 'shop:price' %}" method="POST">
                     {% csrf_token %}
-                    <select name="filter_cat" id="filter_cat" class="btn btn-secondary dropdown-toggle" onchange="this.form.submit()">
-                            <option value="">Categorias</option>
-                            <option value="all">Mostrar todo</option>
-                        {% for cat in categories %}
-                            <option value="{{cat.name}}">{{cat.name}}</option>
-                        {% endfor %}
+                    <select name="filter_price" id="filter_price" class="btn btn-secondary dropdown-toggle" onchange="this.form.submit()">
+                        <option value="">Precios</option>
+                        <option value="all">Mostrar todo</option>
+                        <option value="1">Menos de $500</option>
+                        <option value="2">Menos de $1000</option>
+                        <option value="3">Mayor a $1000</option>
                     </select>
                 </form>
             </div>
