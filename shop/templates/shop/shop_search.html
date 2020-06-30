@@ -1,6 +1,7 @@
 {% extends 'core/base.html'  %}
 
 {% load static %}
+{% load item_extras %}
 
 {% block title %}Shop{% endblock title %}
 
@@ -80,6 +81,9 @@
                                     {% for cat in i.category.all %}
                                         <p><em> Categoria: {{cat.name}} </em></p>
                                     {% endfor %}
+                                    <br>
+                                    <br>
+                                    <p><em> Precio: {{i.price | price_format}} </em></p>
                                 
                                 </td>
                                 <td class="text-center py-5">

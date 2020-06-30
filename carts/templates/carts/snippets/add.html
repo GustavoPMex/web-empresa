@@ -5,9 +5,9 @@
     <input type="hidden" name='product_id' value="{{itemshop.id}}">
     
     <div class="">
-        <button type="button" class="btn btn-info" id="remove">-</button>
+        <button type="button" class="btn btn-primary mb-1" id="add">Añadir</button>
         <input type="number" value="1" class="form-control " readonly name="quantity"  id="quantity" >
-        <button type="button" class="btn btn-info" id="add">+</button>
+        <button type="button" class="btn btn-danger mt-1" id="remove">Quitar</button>
     </div>
 
     <button class="mt-4 btn-shop" type="submit"><img class="car-shop-img" src="{% static 'core/img/icons/shopping-cart.png' %}" alt=""></button>
@@ -15,13 +15,14 @@
 </form>
 
 <script>
+    
     const add = document.getElementById('add')
     const remove = document.getElementById('remove')
     const quantity = document.getElementById('quantity')
 
     add.addEventListener('click', function(){
         quantity.value = parseInt(quantity.value) + 1
-    })
+    });
 
     remove.addEventListener('click', function(){
         value = parseInt(quantity.value)
@@ -30,7 +31,7 @@
             value = value -1
         }
         quantity.value = value
-    })
+    });
 
 
 </script>

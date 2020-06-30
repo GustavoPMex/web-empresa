@@ -6,30 +6,34 @@
 {% block title %}Add{% endblock %}
 
 {% block content %}
-    <div class="col-3">
-        {% if item.img %}
-            <img class='img-item-shop mt-5' src="{{item.img.url}}" alt="Imagen del producto">
-        {% endif %}
+<div class="container container-shop">
+    <div class="row w-100 text-center">
+        <div class="col-12 col-md-3">
+            {% if item.img %}
+                <img class='img-item-shop m-4' src="{{item.img.url}}" alt="Imagen del producto">
+            {% endif %}
+        </div>
+
+        <div class="col">
+            <div class="h3 font-weight-bold title-agregado">
+                {{ quantity | quantity_add_format}}
+            </div>
+            <div class="">
+                <a class="title-cart-add" href="{% url 'shop:index' %}">{{item.name}}</a>
+            </div>
+
+            <div class="font-weight-bold text-danger">
+                {{item.price | price_format}}
+            </div>
+
+            <div class="">
+                <a href="{% url 'carts:cart' %}" class="btn btn-info my-1">Ver carrito</a>
+            </div>
+
+            <div class="mt-2">
+                <a class="title-cart-shop" href="{% url 'shop:index' %}">Seguir comprando</a>
+            </div>
+        </div>
     </div>
-
-    <div class="col">
-        <div class="h3 font-weight-bold text-success">
-            {{ quantity | quantity_add_format}}
-        </div>
-        <div class="">
-            <a href="{% url 'shop:index' %}">{{item.name}}</a>
-        </div>
-
-        <div class="font-weight-bold text-danger">
-            {{item.price | price_format}}
-        </div>
-
-        <div class="">
-            <a href="{% url 'carts:cart' %}" class="btn btn-info">Ver carrito</a>
-        </div>
-
-        <div class="mt-2">
-            <a href="{% url 'shop:index' %}">Seguir comprando</a>
-        </div>
-    </div>
+</div>
 {% endblock %}

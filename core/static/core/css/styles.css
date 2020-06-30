@@ -672,3 +672,66 @@ li:last-child a{
     font-weight: bold;
     color: white;
 }
+
+.lista_vacia{
+    color: white;
+    font-size: 2em;
+}
+
+.lista_vacia_link{
+    color: #F57C00;
+    font-size: 1.5em;
+}
+
+.lista_vacia_link:hover{
+    transition: .3s;
+    color: red;
+    text-decoration: none;
+}
+
+.title-agregado{
+    color: white;
+    margin-top: 1em;
+}
+
+.title-cart-add{
+    color: #F57C00;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.title-cart-add:hover{
+    transition: .3s;
+    text-decoration: none;
+}
+
+.title-cart-shop{
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.title-cart-shop:hover{
+    text-decoration: none;
+    transition: .3s;
+}
+
+.product-cart{
+    font-size: 1.5em;
+    color: white;
+    margin-top: 1em;
+}
+
+.product-cart:hover{
+    color: #bd5e00;
+    transition: .3s;
+    text-decoration: none;
+}
+
+
+
+.btn-warning:hover{
+    color: white;
+    transition: .3s;
+
+}
