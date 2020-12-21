@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 from .models import itemShop, categoryModel
 
 
@@ -15,6 +16,14 @@ def shop_view(request):
     }
 
     return render(request, 'shop/shop.html', modelos)
+
+
+class producto_individual(DetailView):
+    model = itemShop
+    template_name = 'shop/shop_individual.html'
+    context_object_name = 'product'
+
+
 
 def shop_price_view(request):
     items = itemShop.objects.all()

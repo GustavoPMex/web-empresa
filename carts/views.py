@@ -14,6 +14,10 @@ def cart(request):
         'cart':cart
     })
 
+
+
+
+
 def add(request):
 
     cart = get_or_create_cart(request)

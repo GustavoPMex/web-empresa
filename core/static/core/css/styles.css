@@ -735,3 +735,29 @@ li:last-child a{
     transition: .3s;
 
 }
+
+.h4-modal{
+    font-size: 1.6em;
+    color: white;
+    text-shadow: rgba(0, 0, 0,1)0 0px 3px;
+}
+
+.h5-modal{
+    font-size: 1.6em;
+    color: white;
+    text-shadow: rgba(0, 0, 0, 1)0 0px 3px;
+}
+
+.precio-modal{
+    font-size: 1.2em;
+    color: white;
+    text-shadow: rgba(0, 0, 0, 1)0 0px 3px;
+}
+
+.modal-bg{
+    background-color: rgb(184, 184, 184);
+}
+
+.btn{
+    transition: .2s;
+}

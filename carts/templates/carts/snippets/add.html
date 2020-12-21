@@ -4,13 +4,15 @@
     {% csrf_token %}
     <input type="hidden" name='product_id' value="{{itemshop.id}}">
     
-    <div class="">
-        <button type="button" class="btn btn-primary mb-1" id="add">Añadir</button>
-        <input type="number" value="1" class="form-control " readonly name="quantity"  id="quantity" >
-        <button type="button" class="btn btn-danger mt-1" id="remove">Quitar</button>
+    <div class="row">
+        <button type="button" class="col btn btn-danger mx-1" id="remove">Quitar</button>
+        <input type="number" value="1" class="col mx-2 form-control " readonly name="quantity"  id="quantity" >
+        <button type="button" class="col btn btn-primary mx-1" id="add">Añadir</button>
+
+      
     </div>
 
-    <button class="mt-4 btn-shop" type="submit"><img class="car-shop-img" src="{% static 'core/img/icons/shopping-cart.png' %}" alt=""></button>
+    <button class="my-4 btn-shop" type="submit"><img class="car-shop-img" src="{% static 'core/img/icons/shopping-cart.png' %}" alt="botón comprar" title="botón comprar"></button>
 
 </form>
 
