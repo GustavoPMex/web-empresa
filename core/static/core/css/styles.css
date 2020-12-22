@@ -235,11 +235,23 @@ li:last-child a{
 
 .container-shop{
     background-color: rgb(139, 139, 139);
+    width: 80%;
+}
+
+.container-shop-add{
+    background-color: rgb(139, 139, 139);
+    border-radius: 8px;
+    width: 60%;
+}
+
+.container-shop-cart{
+    background-color: rgb(139, 139, 139);
+    border-radius: 8px;
+    width: 70%;
 }
 
 .img-item-shop{
-    width: 250px;
-    height: 180px;
+    width: 80%;
 }
 
 .car-shop-img{
@@ -681,11 +693,12 @@ li:last-child a{
 .lista_vacia_link{
     color: #F57C00;
     font-size: 1.5em;
+    transition: .2s;
 }
 
 .lista_vacia_link:hover{
     transition: .3s;
-    color: red;
+    color: #007bff;
     text-decoration: none;
 }
 
@@ -713,6 +726,7 @@ li:last-child a{
 
 .title-cart-shop:hover{
     text-decoration: none;
+    color: #F57C00;
     transition: .3s;
 }
 
@@ -722,11 +736,6 @@ li:last-child a{
     margin-top: 1em;
 }
 
-.product-cart:hover{
-    color: #bd5e00;
-    transition: .3s;
-    text-decoration: none;
-}
 
 
 
@@ -760,4 +769,22 @@ li:last-child a{
 
 .btn{
     transition: .2s;
+}
+.p-shop{
+    color: white;
+    font-size: 2em;
+}
+
+.p-clients{
+    color: #F57C00;
+    font-size: 1.5em;
+    margin-bottom: 2em;
+}
+
+.size-cart{
+    font-size: 1.2em;
+}
+
+.card{
+    width: 60%;
 }

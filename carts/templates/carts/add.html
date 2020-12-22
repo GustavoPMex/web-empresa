@@ -6,9 +6,9 @@
 {% block title %}Add{% endblock %}
 
 {% block content %}
-<div class="container container-shop">
-    <div class="row w-100 text-center">
-        <div class="col-12 col-md-3">
+<div class="container container-shop-add">
+    <div class="row w-100 text-center m-0 p-2">
+        <div class="col">
             {% if item.img %}
                 <img class='img-item-shop m-4' src="{{item.img.url}}" alt="Imagen del producto">
             {% endif %}
@@ -19,10 +19,10 @@
                 {{ quantity | quantity_add_format}}
             </div>
             <div class="">
-                <a class="title-cart-add" href="{% url 'shop:index' %}">{{item.name}}</a>
+                <p class="title-cart-add">{{item.name}}</p>
             </div>
 
-            <div class="font-weight-bold text-danger">
+            <div class="font-weight-bold text-white mb-2">
                 {{item.price | price_format}}
             </div>
 

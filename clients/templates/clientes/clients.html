@@ -26,11 +26,15 @@
             </div>
             <div class="row w-100 mp-container justify-content-center">
                 
-                {% for p in projects %}
-                    <div class="col-12 col-sm-4 col-lg-3 text-center m-5 m-sm-4 m-lg-0">
-                        <a href="{{p.url}}" target='_blank'><img class="img-trabajos" src="{{p.image.url}}"  alt="{{p.name}}" title="{{p.name}}"></a>
-                    </div>
-                {% endfor %}
+                {% if projects %}
+                    {% for p in projects %}
+                        <div class="col-12 col-sm-4 col-lg-3 text-center m-5 m-sm-4 m-lg-0">
+                            <a href="{{p.url}}" target='_blank'><img class="img-trabajos" src="{{p.image.url}}"  alt="{{p.name}}" title="{{p.name}}"></a>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="p-clients">Sin proyectos para mostrar</p>
+                {% endif %}
 
             </div>
         </div>
@@ -42,11 +46,15 @@
             </div>
             <div class="row w-100 mp-container justify-content-center">
 
-                {% for c in clientes %}
-                    <div class="col-12 col-sm-4 col-lg-3 text-center m-5 m-sm-4 m-lg-0">
-                        <img class="img-trabajos" src="{{c.image.url}}" alt="{{c.name}}" title='{{c.name}}'>
-                    </div>
-                {% endfor %}
+                {% if clientes %}
+                    {% for c in clientes %}
+                        <div class="col-12 col-sm-4 col-lg-3 text-center m-5 m-sm-4 m-lg-0">
+                            <img class="img-trabajos" src="{{c.image.url}}" alt="{{c.name}}" title='{{c.name}}'>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="p-clients">Sin clientes para mostrar</p>
+                {% endif %}
             </div>
         </div>
 

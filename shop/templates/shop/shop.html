@@ -7,97 +7,102 @@
 
 {% block content %}
 
-<div class="container container-shop">
-    <div class="p-5 row w-100">
-        <div class="col-12 col-lg-7 text-center">
-            <h1 class="h-shop">Componentes / Refacciones / Consumibles / Accesorios</h1>
+{% if items %}
+    <div class="container container-shop">
+        <div class="p-5 row w-100">
+            <div class="col-12 col-lg-7 text-center">
+                <h1 class="h-shop">Componentes / Refacciones / Consumibles / Accesorios</h1>
 
-        </div>
+            </div>
 
-        <div class="col-12 mt-5 mt-lg-0 col-lg-5">
-            <form action="{% url 'shop:search_p' %}" method="GET">
-                <div class="input-group text-center">
-                    <input type="search" class="form-control" placeholder="Ingresa palabra clave, ejem: Impresora" name="search">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary btn-s-shop" type="submit">Buscar</button>
+            <div class="col-12 mt-5 mt-lg-0 col-lg-5">
+                <form action="{% url 'shop:search_p' %}" method="GET">
+                    <div class="input-group text-center">
+                        <input type="search" class="form-control" placeholder="Ingresa palabra clave, ejem: Impresora" name="search">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary btn-s-shop" type="submit">Buscar</button>
+                        </div>
                     </div>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <div class="row w-100 d-flex justify-content-center">
-        <div class="col-12 col-lg-3 text-center mt-3">
-            <div class="dropdown">
-                <form action="{% url 'shop:category' %}" method="POST">
-                    {% csrf_token %}
-                    <select name="filter_cat" id="filter_cat" class="btn btn-secondary dropdown-toggle" onchange="this.form.submit()">
-                            <option value="">Categorias</option>
-                            <option value="all">Mostrar todo</option>
-                        {% for cat in categories %}
-                            <option value="{{cat.name}}">{{cat.name}}</option>
-                        {% endfor %}
-                    </select>
                 </form>
             </div>
         </div>
 
-        <div class="col-12 col-lg-3 text-center mt-3">
-            <div class="dropdown">
-                <form action="{% url 'shop:price' %}" method="POST">
-                    {% csrf_token %}
-                    <select name="filter_price" id="filter_price" class="btn btn-secondary dropdown-toggle" onchange="this.form.submit()">
-                        <option value="">Precios</option>
-                        <option value="all">Mostrar todo</option>
-                        <option value="1">Menos de $500</option>
-                        <option value="2">Menos de $1000</option>
-                        <option value="3">Mayor a $1000</option>
-                    </select>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <div class="row w-100 my-5 mx-1">
-        <table class=" table  table-responsive table-striped table-bordered  table-dark table-responsive">
-            <thead class="head-table text-center">
-                <tr>
-                    <th scope="col">Producto</th>
-                    <th class="d-none d-lg-table-cell"  scope="col">Imagen ilustratitva</th>
-                    <th scope="col">Descripción</th>
-                    <th scope="col">Comprar</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for i in items %}
-                    <tr>
-                        <td class="text-center py-5">{{i.name}}</td>
-                        <td class="text-center d-none d-lg-inline"><img class='img-item-shop mt-5' src="{{i.img.url}}" alt=""></td>
-                        <td class="text-center py-5">
-                            {{i.description}}
-                            <br>
-                            <br>
-                            {% for cat in i.category.all %}
-                                <p><em> Categoria: {{cat.name}} </em></p>
+        <div class="row w-100 d-flex justify-content-center">
+            <div class="col-12 col-lg-3 text-center mt-3">
+                <div class="dropdown">
+                    <form action="{% url 'shop:category' %}" method="POST">
+                        {% csrf_token %}
+                        <select name="filter_cat" id="filter_cat" class="btn btn-secondary dropdown-toggle" onchange="this.form.submit()">
+                                <option value="">Categorias</option>
+                                <option value="all">Mostrar todo</option>
+                            {% for cat in categories %}
+                                <option value="{{cat.name}}">{{cat.name}}</option>
                             {% endfor %}
-                            <br>
-                            <br>
-                            <p><em> Precio: {{i.price | price_format}} </em></p>
-                        
-                        </td>
-                        <td class="text-center py-5">
-                            {% include 'shop/includes/modal.html' %}
-                            <a onclick="return abrir_modal('{% url 'shop:producto_v' i.id %}')" class="btn btn-success btn-circle" href="#">
-                                Comprar</a>
-                            </a>
-                        </td>
+                        </select>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-3 text-center mt-3">
+                <div class="dropdown">
+                    <form action="{% url 'shop:price' %}" method="POST">
+                        {% csrf_token %}
+                        <select name="filter_price" id="filter_price" class="btn btn-secondary dropdown-toggle" onchange="this.form.submit()">
+                            <option value="">Precios</option>
+                            <option value="all">Mostrar todo</option>
+                            <option value="1">Menos de $500</option>
+                            <option value="2">Menos de $1000</option>
+                            <option value="3">Mayor a $1000</option>
+                        </select>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="row w-100 my-5 mx-1">
+            <table class=" table  table-responsive table-striped table-bordered  table-dark table-responsive">
+                <thead class="head-table text-center">
+                    <tr>
+                        <th scope="col">Producto</th>
+                        <th class="d-none d-lg-table-cell"  scope="col">Imagen ilustratitva</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Comprar</th>
                     </tr>
-                {% endfor %}
+                </thead>
+                <tbody>
+                    {% for i in items %}
+                        <tr>
+                            <td class="text-center py-5">{{i.name}}</td>
+                            <td class="text-center d-none d-lg-inline"><img class='img-item-shop mt-5' src="{{i.img.url}}" alt=""></td>
+                            <td class="text-center py-5">
+                                {{i.description}}
+                                <br>
+                                <br>
+                                {% for cat in i.category.all %}
+                                    <p><em> Categoria: {{cat.name}} </em></p>
+                                {% endfor %}
+                                <br>
+                                <br>
+                                <p><em> Precio: {{i.price | price_format}} </em></p>
+                            
+                            </td>
+                            <td class="text-center py-5">
+                                {% include 'shop/includes/modal.html' %}
+                                <a onclick="return abrir_modal('{% url 'shop:producto_v' i.id %}')" class="btn btn-success btn-circle" href="#">
+                                    Comprar</a>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
 
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
-
+{% else %}
+    <div class="container text-center ">
+        <p class="p-shop">No hay articulos</p>
+    </div>
+{% endif %}
 
 {% endblock content %}

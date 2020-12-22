@@ -6,11 +6,11 @@
 
 {% block content %}
 
-<div class="container container-shop d-flex justify-content-center">
+{% if cart.products.exists %}
+<div class="container container-shop-cart d-flex justify-content-center">
     <div class="row w-100 text-center">
-        {% if cart.products.exists %}
             <div class="col-12 table-responsive">
-                <table class="table mt-2">
+                <table class="table mt-2 text-white size-cart">
                     <thead>
                         <tr>
                             <th scope="col"></th>
@@ -32,12 +32,12 @@
                                         {% endif %}
                                     </th>
                                     <th>
-                                        <a href="{% url 'shop:index' %}" class="product-cart">{{item.name}}</a>
+                                        <p class="product-cart m-0">{{item.name}}</p>
                                         {% include 'carts/snippets/remove.html' %}
                                     </th>
                                     <th>{{cp.quantity}}</th>
                                     <th>
-                                        <span class="font-weight-bold text-danger">{{item.price | price_format}}</span>
+                                        <span class="font-weight-bold ">{{item.price | price_format}}</span>
                                     </th>
                                 </tr>
                             {% endwith %}
@@ -47,7 +47,7 @@
             </div>
 
             <div class="col text-center">
-                <div class="card my-5">
+                <div class="card my-5 mx-auto">
                     <div class="card-body">
                         <div class="font-weight-bold">
                             Subtotal({{cart.products.count}}) : <span class="text-danger">{{cart.subtotal | price_format}}</span>
@@ -59,13 +59,13 @@
                 </div>
             </div>
             
-        {% else %}
-            <div class="col">
-                <p class="h3 lista_vacia mt-3">Tu carrito está vacio</p>
-                <a class="lista_vacia_link" href="{% url 'shop:index' %}">Volver a la lista</a>
-
-            </div>
-        {% endif %}
     </div>
 </div>
+
+{% else %}
+<div class="container text-center">
+    <p class="lista_vacia mt-3">Tu carrito está vacio</p>
+    <a class="lista_vacia_link" href="{% url 'shop:index' %}">Volver a la lista</a>
+</div>
+{% endif %}
 {% endblock content %}
