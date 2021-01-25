@@ -28,7 +28,7 @@
   <h3 align="center">Proyecto - página de empresa</h3>
 
   <p align="center">
-    Éste proyecto es para una empresa fictisia, que tiene igual una tienda
+    Éste proyecto es para una empresa ficticia, que tiene igual una tienda(el pago no está implementado).
     <br />
     <a href="#"><strong>Explore the docs »</strong></a>
     <br />
