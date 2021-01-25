@@ -1,0 +1,21 @@
+
+{% load item_extras %}
+
+<div class="modal-dialog">
+    <div class="modal-content modal-bg">
+        <div class="modal-header">
+            <h4 class="modal-title h4-modal mx-auto" id="exampleModalLabel">Comprar articulo</h5>
+        </div>
+
+        <div class="modal-body text-info text-center">
+            <h5 class="h5-modal">{{product}}</h5>
+            <p class="precio-modal">precio: {{product.price | price_format}}</p>
+            {% include 'carts/snippets/add.html' with itemshop=product %}
+            
+                <div class="modal-footer mx-auto">
+                    <a type="button" class="btn btn-secondary mx-auto" href="{% url 'shop:index' %}">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
